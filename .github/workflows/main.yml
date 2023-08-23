@@ -16,7 +16,7 @@ jobs:
     - name: Installer le SDK .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '4.8.1'  # Remplace par la version souhaitée
+        dotnet-version: '6.0.x'  # Remplace par la version souhaitée
 
     - name: Build du projet C++/CLR
       run: msbuild RetroTME.sln /p:Configuration=Release
