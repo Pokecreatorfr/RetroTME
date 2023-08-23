@@ -24,11 +24,11 @@ jobs:
       run: msbuild RetroTME.sln /p:Configuration=Release
 
     - name: Archiver les fichiers générés pour Release
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       uses: actions/upload-artifact@v2
       with:
         name: release-artifacts
-        path: release  # Chemin vers les fichiers générés pour la configuration Release
+        path: x64\Release\  # Chemin vers les fichiers générés pour la configuration Release
 
     - name: Afficher le statut
       run: echo "Build terminé !"
+
