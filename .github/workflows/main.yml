@@ -1,0 +1,25 @@
+name: Build et Test C++/CLR avec .NET
+
+on:
+  push:
+    branches:
+      - main  # ou la branche que tu préfères
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v2
+
+    - name: Installer le SDK .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '4.8.1'  # Remplace par la version souhaitée
+
+    - name: Build du projet C++/CLR
+      run: msbuild RetroTME.sln /p:Configuration=Release
+
+    - name: Afficher le statut
+      run: echo "Build terminé !"
