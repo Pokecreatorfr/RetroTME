@@ -23,12 +23,6 @@ jobs:
     - name: Build du projet C++/CLR
       run: msbuild RetroTME.sln /p:Configuration=Release
 
-    - name: Archiver les fichiers générés pour Release
-      uses: actions/upload-artifact@v2
-      with:
-        name: release-artifacts
-        path: x64\Release\  # Chemin vers les fichiers générés pour la configuration Release
-
     - name: Afficher le statut
       run: echo "Build terminé !"
 
