@@ -17,8 +17,8 @@ jobs:
       with:
         dotnet-version: '6.0.x'  # Version souhaitée
 
-    - name: Installer Visual Studio Build Tools
-      run: choco install visualstudio2019buildtools -y
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Build du projet C++/CLR
       run: msbuild RetroTME.sln /p:Configuration=Release
