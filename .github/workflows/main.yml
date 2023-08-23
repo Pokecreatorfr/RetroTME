@@ -1,14 +1,13 @@
-name: Build et Test C++/CLR avec .NET
-
+name: Build C++/CLR with .NET
 on:
   push:
     branches:
-      - main  # ou la branche que tu préfères
+      - main
 
 jobs:
   build:
     runs-on: windows-latest
-    
+
     steps:
     - name: Checkout du code
       uses: actions/checkout@v2
@@ -16,7 +15,10 @@ jobs:
     - name: Installer le SDK .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.x'  # Remplace par la version souhaitée
+        dotnet-version: '6.0.x'  # Version souhaitée
+
+    - name: Installer Visual Studio Build Tools
+      run: choco install visualstudio2019buildtools -y
 
     - name: Build du projet C++/CLR
       run: msbuild RetroTME.sln /p:Configuration=Release
