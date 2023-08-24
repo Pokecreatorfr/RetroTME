@@ -1,4 +1,4 @@
-name: Build C++/CLR with .NET
+name: Build test
 on:
   push:
     branches:
