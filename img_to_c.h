@@ -386,8 +386,8 @@ namespace RetroTME {
 		pictureBox2->Image = bitmap_view;
 		pictureBox2->SizeMode = PictureBoxSizeMode::CenterImage;
 		// display the image size in the textbox4 and textbox5
-		this->textBox4->Text = "X: " + bitmap_view->Width;
-		this->textBox5->Text = "Y: " + bitmap_view->Height;
+		this->textBox5->Text = "X: " + bitmap_view->Width;
+		this->textBox4->Text = "Y: " + bitmap_view->Height;
 	}
 };
 }
