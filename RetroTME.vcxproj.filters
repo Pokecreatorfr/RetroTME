@@ -62,11 +62,11 @@
     <ClInclude Include="Tileset.h">
       <Filter>Forms</Filter>
     </ClInclude>
-    <ClInclude Include="img_to_c.h">
-      <Filter>Forms</Filter>
-    </ClInclude>
     <ClInclude Include="Image_Manager.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="new_tileset.h">
+      <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,11 +109,11 @@
     <ClCompile Include="Tileset.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
-    <ClCompile Include="img_to_c.cpp">
-      <Filter>Forms</Filter>
-    </ClCompile>
     <ClCompile Include="Image_Manager.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="new_tileset.cpp">
+      <Filter>Forms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

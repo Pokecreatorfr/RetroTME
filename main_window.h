@@ -2,7 +2,6 @@
 #include "world.h"
 #include "map.h"
 #include "Tileset.h"
-#include "img_to_c.h"
 #include "start_page.h"
 #include "Core.h"
 
@@ -31,7 +30,6 @@ namespace RetroTME {
 			this->world = gcnew RetroTME::world();
 			this->map = gcnew RetroTME::map();
 			this->tileset = gcnew RetroTME::Tileset(core);
-			this->img_to_c = gcnew RetroTME::img_to_c(core);
 		}
 
 	private:
@@ -39,8 +37,7 @@ namespace RetroTME {
 		RetroTME::world^ world;
 		RetroTME::map^ map;
 		RetroTME::Tileset^ tileset;
-		RetroTME::img_to_c^ img_to_c;
-	private: System::Windows::Forms::Button^ Img_to_c_button;
+
 
 	private: System::Windows::Forms::Button^ Tileset_button;
 
@@ -84,7 +81,6 @@ namespace RetroTME {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(main_window::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->Img_to_c_button = (gcnew System::Windows::Forms::Button());
 			this->Tileset_button = (gcnew System::Windows::Forms::Button());
 			this->Map_button = (gcnew System::Windows::Forms::Button());
 			this->World_button = (gcnew System::Windows::Forms::Button());
@@ -97,7 +93,6 @@ namespace RetroTME {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(82)), static_cast<System::Int32>(static_cast<System::Byte>(82)),
 				static_cast<System::Int32>(static_cast<System::Byte>(82)));
-			this->panel1->Controls->Add(this->Img_to_c_button);
 			this->panel1->Controls->Add(this->Tileset_button);
 			this->panel1->Controls->Add(this->Map_button);
 			this->panel1->Controls->Add(this->World_button);
@@ -107,23 +102,6 @@ namespace RetroTME {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(64, 580);
 			this->panel1->TabIndex = 0;
-			// 
-			// Img_to_c_button
-			// 
-			this->Img_to_c_button->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(65)), static_cast<System::Int32>(static_cast<System::Byte>(65)),
-				static_cast<System::Int32>(static_cast<System::Byte>(65)));
-			this->Img_to_c_button->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Img_to_c_button.BackgroundImage")));
-			this->Img_to_c_button->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->Img_to_c_button->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Img_to_c_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Img_to_c_button->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(82)), static_cast<System::Int32>(static_cast<System::Byte>(82)),
-				static_cast<System::Int32>(static_cast<System::Byte>(82)));
-			this->Img_to_c_button->Location = System::Drawing::Point(0, 192);
-			this->Img_to_c_button->Name = L"Img_to_c_button";
-			this->Img_to_c_button->Size = System::Drawing::Size(64, 64);
-			this->Img_to_c_button->TabIndex = 3;
-			this->Img_to_c_button->UseVisualStyleBackColor = false;
-			this->Img_to_c_button->Click += gcnew System::EventHandler(this, &main_window::button2_Click_1);
 			// 
 			// Tileset_button
 			// 
@@ -222,7 +200,6 @@ namespace RetroTME {
 		this->World_button->Enabled = false;
 		this->Map_button->Enabled = false;
 		this->Tileset_button->Enabled = false;
-		this->Img_to_c_button->Enabled = false;
 
 		// activate buttons when start_page is closed
 		start_page->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &main_window::start_page_closed);
@@ -233,8 +210,6 @@ namespace RetroTME {
 		this->World_button->Enabled = true;
 		this->Map_button->Enabled = true;
 		this->Tileset_button->Enabled = true;
-		this->Img_to_c_button->Enabled = true;
-		img_to_c->update_image_list();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		// if other page is displayed, remove it
@@ -258,6 +233,7 @@ namespace RetroTME {
 	}
 	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		// if other page is displayed, remove it
+		tileset->update_image_list();
 		if (this->panel2->Controls->Count > 0)
 			this->panel2->Controls->RemoveAt(0);
 		// display tileset on panel2
@@ -266,17 +242,5 @@ namespace RetroTME {
 		this->panel2->Controls->Add(tileset);
 		tileset->Show();
 		}
-	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-			// if other page is displayed, remove it
-		if (this->panel2->Controls->Count > 0)
-			this->panel2->Controls->RemoveAt(0);
-		// display img_to_c on panel2
-		img_to_c->TopLevel = false;
-		img_to_c->Dock = DockStyle::Fill;
-		this->panel2->Controls->Add(img_to_c);
-		img_to_c->Show();
-
-
-	}
 };
 }

@@ -18,29 +18,9 @@ void Project_Manager::create_project(std::string path)
 	project_file << "world_path = '\\data\\world.h';\n";
 	project_file << "map_path = '\\data\\map.h';\n";
 	project_file << "tileset_path = '\\data\\tileset';\n";
-	project_file << "image_path = '\\data\\image_c.h';\n";
+	project_file << "image_path = '\\graphics';\n";
 	project_file.close();
 	this->project_path = path;
-
-	// create the data folder with the world.h, map.h, tileset.h and image_c.h files
-	std::string data_path = path + "\\data";
-	_wmkdir(std::wstring(data_path.begin(), data_path.end()).c_str());
-	std::string world_path = data_path + "\\world.h";
-	std::string map_path = data_path + "\\map.h";
-	std::string tileset_path = data_path + "\\tileset.h";
-	std::string image_path = data_path + "\\image_c.h";
-	std::ofstream world_file;
-	world_file.open(world_path);
-	world_file.close();
-	std::ofstream map_file;
-	map_file.open(map_path);
-	map_file.close();
-	std::ofstream tileset_file;
-	tileset_file.open(tileset_path);
-	tileset_file.close();
-	std::ofstream image_file;
-	image_file.open(image_path);
-	image_file.close();
 }
 
 void Project_Manager::load_project(std::string path)
@@ -80,7 +60,6 @@ void Project_Manager::load_project(std::string path)
 	this->project_path = path;
 	this->map_manager.set_map_path(path + map_path);
 	this->tileset_manager.set_tileset_path(path + tileset_path);
-	this->tileset_manager.set_tileset_header_path(path + tileset_header_path);
 	this->image_manager.set_image_path(path + image_path);
 
 }

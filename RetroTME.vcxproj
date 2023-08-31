@@ -81,6 +81,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -121,6 +122,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -139,9 +141,6 @@
     <ClInclude Include="const.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Image_Manager.h" />
-    <ClInclude Include="img_to_c.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="main_window.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -149,6 +148,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Map_Manager.h" />
+    <ClInclude Include="new_tileset.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Project_Manager.h" />
     <ClInclude Include="Resource.h" />
@@ -168,10 +170,10 @@
     <ClCompile Include="Config_Manager.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Image_Manager.cpp" />
-    <ClCompile Include="img_to_c.cpp" />
     <ClCompile Include="main_window.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="Map_Manager.cpp" />
+    <ClCompile Include="new_tileset.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -196,14 +198,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="img_to_c.resx">
-      <DependentUpon>img_to_c.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="main_window.resx">
       <DependentUpon>main_window.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="map.resx">
       <DependentUpon>map.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="new_tileset.resx">
+      <DependentUpon>new_tileset.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="start_page.resx">
       <DependentUpon>start_page.h</DependentUpon>

@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+#include "new_tileset.h"
 
 namespace RetroTME {
 
@@ -23,6 +24,16 @@ namespace RetroTME {
 			//TODO: ajoutez ici le code du constructeur
 			//
 			this->core = core;
+		}
+
+	public : 
+		void update_image_list() {
+			std::vector<std::string> img_list = core->project_manager.get_image_manager()->get_image_list();
+			for (int i = 0; i < img_list.size(); i++) {
+				// ne garder que le nom du fichier
+				img_list[i] = img_list[i].substr(img_list[i].find_last_of("\\") + 1);
+				listBox1->Items->Add(gcnew String(img_list[i].c_str()));
+			}
 		}
 	private: System::Windows::Forms::Button^ Nouveau;
 	private: System::Windows::Forms::ListBox^ listBox1;
@@ -149,7 +160,6 @@ namespace RetroTME {
 			this->textBox5->Size = System::Drawing::Size(56, 13);
 			this->textBox5->TabIndex = 11;
 			this->textBox5->Text = L"Image:";
-			this->textBox5->TextChanged += gcnew System::EventHandler(this, &Tileset::textBox5_TextChanged);
 			// 
 			// listBox1
 			// 
