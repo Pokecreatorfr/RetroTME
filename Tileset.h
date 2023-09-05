@@ -24,6 +24,7 @@ namespace RetroTME {
 			//TODO: ajoutez ici le code du constructeur
 			//
 			this->core = core;
+			new_tileset_form = gcnew new_tileset(core);
 		}
 
 	public : 
@@ -42,6 +43,7 @@ namespace RetroTME {
 
 	private:
 		Core* core;
+		new_tileset^ new_tileset_form;
 
 	protected:
 		/// <summary>
@@ -179,6 +181,7 @@ namespace RetroTME {
 			this->Nouveau->TabIndex = 1;
 			this->Nouveau->Text = L"Nouveau";
 			this->Nouveau->UseVisualStyleBackColor = true;
+			this->Nouveau->Click += gcnew System::EventHandler(this, &Tileset::Nouveau_Click);
 			// 
 			// domainUpDown1
 			// 
@@ -211,6 +214,10 @@ namespace RetroTME {
 #pragma endregion
 	private: System::Void domainUpDown1_SelectedItemChanged(System::Object^ sender, System::EventArgs^ e) {
 
+	}
+	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
+		//open new_tileset_form
+		new_tileset_form->ShowDialog();
 	}
 };
 }
