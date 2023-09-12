@@ -41,6 +41,7 @@ class Tileset_Manager
 		void load_tileset(std::string tileset_name);
 		Tileset* get_tileset();
 		void save_tileset();
+		void new_tileset(std::string tileset_name);
 	private:
 		std::string tileset_path;
 		std::vector<std::string> tilesets_names;

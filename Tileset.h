@@ -33,12 +33,12 @@ namespace RetroTME {
 			for (int i = 0; i < img_list.size(); i++) {
 				// ne garder que le nom du fichier
 				img_list[i] = img_list[i].substr(img_list[i].find_last_of("\\") + 1);
-				listBox1->Items->Add(gcnew String(img_list[i].c_str()));
+				//listBox1->Items->Add(gcnew String(img_list[i].c_str()));
 			}
 		}
 	private: System::Windows::Forms::Button^ Nouveau;
-	private: System::Windows::Forms::ListBox^ listBox1;
-	private: System::Windows::Forms::TextBox^ textBox5;
+
+
 	public:
 
 	private:
@@ -82,8 +82,6 @@ namespace RetroTME {
 			this->vScrollBar1 = (gcnew System::Windows::Forms::VScrollBar());
 			this->hScrollBar1 = (gcnew System::Windows::Forms::HScrollBar());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->Nouveau = (gcnew System::Windows::Forms::Button());
 			this->domainUpDown1 = (gcnew System::Windows::Forms::DomainUpDown());
 			this->panel1->SuspendLayout();
@@ -137,40 +135,12 @@ namespace RetroTME {
 			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->panel2->Controls->Add(this->textBox5);
-			this->panel2->Controls->Add(this->listBox1);
 			this->panel2->Controls->Add(this->Nouveau);
 			this->panel2->Controls->Add(this->domainUpDown1);
 			this->panel2->Location = System::Drawing::Point(413, -1);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(826, 617);
 			this->panel2->TabIndex = 1;
-			// 
-			// textBox5
-			// 
-			this->textBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(65)), static_cast<System::Int32>(static_cast<System::Byte>(65)),
-				static_cast<System::Int32>(static_cast<System::Byte>(65)));
-			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox5->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->textBox5->ForeColor = System::Drawing::SystemColors::Menu;
-			this->textBox5->Location = System::Drawing::Point(552, 32);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->ReadOnly = true;
-			this->textBox5->ShortcutsEnabled = false;
-			this->textBox5->Size = System::Drawing::Size(56, 13);
-			this->textBox5->TabIndex = 11;
-			this->textBox5->Text = L"Image:";
-			// 
-			// listBox1
-			// 
-			this->listBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(552, 50);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(271, 95);
-			this->listBox1->TabIndex = 10;
 			// 
 			// Nouveau
 			// 
@@ -207,7 +177,6 @@ namespace RetroTME {
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -217,7 +186,10 @@ namespace RetroTME {
 	}
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
 		//open new_tileset_form
+		new_tileset_form->update_image_list();
 		new_tileset_form->ShowDialog();
 	}
+private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
